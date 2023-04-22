@@ -1,0 +1,18 @@
+<label>Server Name : {{serverName}}</label>
+<input type="text" class="form-control" (input)="onUpdateServer($event)">
+<h3>Server Component!!</h3>
+<button class = "btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add new Server</button>
+<h3>{{serverCreationStatus}}</h3>
+
+<input type="text" class="form-control" [(ngModel)]="username">
+<p>{{username}}</p>
+<button class="btn btn-primary" [disabled]="username===''" (click)="username=''">Click Me</button>
+
+
+<button (click)="allowVisiblity=!allowVisiblity;counter.push(counter.length+1)">Display Details</button>
+<button (click)="allowVisiblity=!allowVisiblity;counter.push(($event.timeStamp)/1000+' seconds')">Display TimeStamp</button>
+<p *ngIf="allowVisiblity">Secret password = tuna</p>
+<p *ngFor="let count of counter; let i=index"
+    [ngStyle]="{backgroundColor:i>=4?'blue':'transparent'}"
+    [ngClass]="{'white':i>=4}"
+>{{count}}</p>
